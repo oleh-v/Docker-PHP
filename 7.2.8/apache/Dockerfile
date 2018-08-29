@@ -1,6 +1,6 @@
 FROM php:7.2.8-apache-stretch
 
-##### LIBS, MONGO, GD
+### LIBS, MONGO, GD
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -16,23 +16,23 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-enable gd
 
-##### MCRYPT
+### MCRYPT
 RUN pecl install mcrypt-1.0.1
 RUN docker-php-ext-enable mcrypt
 
-##### MYSQLI
+### MYSQLI
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 
-##### OPCAHCE
+### OPCAHCE
 RUN docker-php-ext-install opcache
 RUN docker-php-ext-enable opcache
 
-##### MEMCACHED
+### MEMCACHED
 RUN apt-get install -y libz-dev libmemcached-dev
 RUN pecl install memcached-3.0.4
 RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 
-##### IMAGICK
+### IMAGICK
 RUN apt-get install -y libmagickwand-dev --no-install-recommends
 RUN pecl install imagick && docker-php-ext-enable imagick
