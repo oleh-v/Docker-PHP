@@ -33,6 +33,6 @@ RUN apt-get install -y libz-dev libmemcached-dev
 RUN pecl install memcached-3.0.4
 RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 
-### IMAGICK
+#### IMAGICK
 RUN apt-get install -y libmagickwand-dev --no-install-recommends
 RUN pecl install imagick && docker-php-ext-enable imagick
