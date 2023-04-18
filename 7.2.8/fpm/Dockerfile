@@ -36,3 +36,4 @@ RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 ### IMAGICK
 RUN apt-get install -y libmagickwand-dev --no-install-recommends
 RUN pecl install imagick && docker-php-ext-enable imagick
+
